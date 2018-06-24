@@ -7,7 +7,7 @@ module Chihiro
         config.lograge.enabled = true
         config.lograge.base_controller_class = "ActionController::API"
         config.lograge.ignore_actions = ["HealthCheckController#index"]
-        if ENV["RAILS_LOG_TO_STDOUT"].present?
+        if ENV["RAILS_LOG_TO_STDOUT"].present? && ENV["RAILS_ENV"] != "test"
           logger = ActiveSupport::Logger.new(STDOUT)
           logger.formatter = config.log_formatter
           config.logger = logger
