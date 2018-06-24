@@ -1,0 +1,1 @@
+Chihiro::Initializer.new.execute
