@@ -20,7 +20,6 @@ module Chihiro
           logger.formatter = config.log_formatter
           config.logger = logger
         end
-        config.log_level = :info
       end
     end
   end
