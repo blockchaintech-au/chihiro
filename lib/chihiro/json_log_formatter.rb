@@ -1,13 +1,14 @@
 # frozen_string_literal: true
+
 module Chihiro
   class JsonLogFormatter < Logger::Formatter
     def call(severity, _time, _progname, msg)
       extra_log_data(msg).merge(
-        "level": severity.downcase,
-        "project": ENV["PROJECT"],
-        "environment": ENV["RAILS_ENV"],
-        "application": ENV["APP_NAME"],
-        "dateTime": Time.now,
+        level: severity.downcase,
+        project: ENV['PROJECT'],
+        environment: ENV['ENVIRONMENT'],
+        application: ENV['APP_NAME'],
+        datetime: Time.now
       ).to_json + "\r\n"
     end
 
@@ -17,9 +18,9 @@ module Chihiro
       if msg.is_a? Hash
         msg
       elsif msg.is_a? Exception
-        {"message": msg.message, "backtrace": msg.backtrace}
+        { message: msg.message, backtrace: msg.backtrace }
       else
-        {"message": msg}
+        { message: msg }
       end
     end
   end

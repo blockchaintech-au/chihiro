@@ -1,0 +1,28 @@
+Layout/TrailingBlankLines:
+  Enabled: false
+
+Style/FormatString:
+  Enabled: false
+  
+RandomWithOffset:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 125
+Documentation:
+  Enabled: false
+Metrics/BlockLength:
+  Max: 30
+
+AllCops:
+  Exclude:
+    - 'spec/spec_helper.rb'
+    - 'test/**/*'
+    - 'bin/*'
+  TargetRubyVersion: "2.5"

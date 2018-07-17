@@ -1,6 +1,8 @@
-require "chihiro/version"
-require "chihiro/initializer"
-require "chihiro/json_log_formatter"
+# frozen_string_literal: true
+
+require 'chihiro/version'
+require 'chihiro/initializer'
+require 'chihiro/json_log_formatter'
 
 module Chihiro
   # Your code goes here...
