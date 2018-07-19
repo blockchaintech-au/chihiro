@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Chihiro
-  class JsonLogFormatter < Logger::Formatter
+  class JsonLogFormatter < ::Logger::Formatter
     def call(severity, _time, _progname, msg)
       extra_log_data(msg).merge(
         level: severity.downcase,
@@ -16,7 +16,7 @@ module Chihiro
 
     def extra_log_data(msg)
       if msg.is_a? Hash
-        msg
+        MaskUtil.mask(msg)
       elsif msg.is_a? Exception
         { message: msg.message, backtrace: msg.backtrace }
       else
