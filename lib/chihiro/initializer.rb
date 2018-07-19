@@ -10,6 +10,7 @@ module Chihiro
 
     def setup_log_configuration # rubocop:disable Metrics/MethodLength
       Rails.application.configure do
+        config.no_log_param_paths = []
         config.log_formatter = Chihiro::JsonLogFormatter.new
         config.colorize_logging = false
         config.lograge.enabled = true
