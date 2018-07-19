@@ -17,9 +17,18 @@ module Chihiro
 
       private
 
+      def mask_all_characters
+        lambda { |value| value.to_s.gsub(/./, '*') }
+      end
+
       def masks
-        {
-          'password' => ->(value) { value.to_s.gsub(/./, '*') }
+        @all_masks ||= {
+          'password' => mask_all_characters,
+          'account_number' => mask_all_characters,
+          'token' => mask_all_characters,
+          'otp' => mask_all_characters,
+          'current_password' => mask_all_characters,
+          'new_password' => mask_all_characters
         }
       end
 
