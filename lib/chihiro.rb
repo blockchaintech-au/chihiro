@@ -2,6 +2,7 @@
 
 require 'chihiro/version'
 require 'chihiro/initializer'
+require 'chihiro/mask_util'
 require 'chihiro/json_log_formatter'
 
 module Chihiro
