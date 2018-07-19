@@ -20,8 +20,7 @@ module Chihiro
     def log_request
       to_log = {
         message: 'Received API request',
-        requestPath: request.path,
-        password: 'password'
+        requestPath: request.path
       }
       if Rails.configuration.no_log_param_paths.include?("#{controller_name}##{action_name}")
         Rails.logger.info(to_log)
