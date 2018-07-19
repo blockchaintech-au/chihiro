@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    chihiro (0.2.0)
+    chihiro (0.3.0)
       lograge (~> 0.10)
 
 GEM
