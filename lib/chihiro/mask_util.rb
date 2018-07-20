@@ -22,7 +22,7 @@ module Chihiro
       end
 
       def mask_email
-        lambda { |value| value.to_s.gsub(/(?<=.{3}).(?=[^@]*?@)/, '*') }
+        lambda { |value| value.to_s.gsub(/(.{1,4}?(?=@)|(?<=@).{1,4})/, '****') }
       end
 
       def masks
