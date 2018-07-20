@@ -20,12 +20,13 @@ module Chihiro
     def log_request
       to_log = {
         message: 'Received API request',
-        requestPath: request.path
+        requestPath: request.path,
+        requestMethod: request.request_method
       }
       if Rails.configuration.no_log_param_paths.include?("#{controller_name}##{action_name}")
         Rails.logger.info(to_log)
       else
-        Rails.logger.info(to_log.merge(params: params.as_json))
+        Rails.logger.info(to_log.merge(params: params.except(:format, :controller, :action).as_json))
       end
     end
   
@@ -33,6 +34,7 @@ module Chihiro
       to_log = {
         message: 'Send API Response',
         requestPath: request.path,
+        requestMethod: request.request_method,
         responseStatus: response.status.to_s
       }
       Rails.logger.info(to_log)
@@ -42,6 +44,7 @@ module Chihiro
       to_log = {
         message: 'Catched exception in controller',
         requestPath: request.path,
+        requestMethod: request.request_method,
         exceptionClass: e.class.to_s,
         exceptionMessage: e.message,
         backtrace: e.backtrace

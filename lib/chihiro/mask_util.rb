@@ -21,6 +21,10 @@ module Chihiro
         lambda { |value| value.to_s.gsub(/./, '*') }
       end
 
+      def mask_email
+        lambda { |value| value.to_s.gsub(/(?<=.{3}).(?=[^@]*?@)/, '*') }
+      end
+
       def masks
         @all_masks ||= {
           'password' => mask_all_characters,
@@ -28,7 +32,9 @@ module Chihiro
           'token' => mask_all_characters,
           'otp' => mask_all_characters,
           'current_password' => mask_all_characters,
-          'new_password' => mask_all_characters
+          'new_password' => mask_all_characters,
+          'email' => mask_email,
+          'user_email' => mask_email
         }
       end
 
