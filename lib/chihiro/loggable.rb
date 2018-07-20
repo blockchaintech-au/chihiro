@@ -51,5 +51,16 @@ module Chihiro
       }
       Rails.logger.error(to_log)
     end
+
+    def log_known_exception(e)
+      to_log = {
+        message: 'Catched known exception in controller',
+        requestPath: request.path,
+        requestMethod: request.request_method,
+        exceptionClass: e.class.to_s,
+        exceptionMessage: e.message
+      }
+      Rails.logger.warn(to_log)
+    end
   end
 end
