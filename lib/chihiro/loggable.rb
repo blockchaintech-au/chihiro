@@ -8,10 +8,15 @@ module Chihiro
 
     private
 
+    def should_ignore_logging?
+      return true unless Rails.configuration.lograge.ignore_actions
+      Rails.configuration.lograge.ignore_actions.include?("#{controller_name.camelize}Controller##{action_name}")
+    end
+
     def log_and_deal_exceptions
-      log_request
+      log_request unless should_ignore_logging?
       yield
-      log_response
+      log_response unless should_ignore_logging?
     rescue => e
       log_exception(e)
       raise
