@@ -9,7 +9,7 @@ module Chihiro
     private
 
     def should_ignore_logging?
-      return false unless Rails.configuration.lograge.ignore_actions
+      return true unless Rails.configuration.lograge.ignore_actions
       Rails.configuration.lograge.ignore_actions.include?("#{controller_name.camelize}Controller##{action_name}")
     end
 
