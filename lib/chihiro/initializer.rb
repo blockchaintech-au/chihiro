@@ -21,7 +21,7 @@ module Chihiro
         config.colorize_logging = false
         config.lograge.enabled = true
         config.lograge.base_controller_class = 'ActionController::API'
-        config.lograge.ignore_actions = ['HealthCheckController#index']
+        config.lograge.ignore_actions = ['HealthCheckController#index', 'HealthCheckController#quick_health']
 
         logger = ActiveSupport::Logger.new(STDOUT)
         logger.formatter = config.log_formatter

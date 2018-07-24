@@ -27,6 +27,7 @@ module Chihiro
 
       def masks
         @all_masks ||= {
+          'private_key' => mask_all_characters,
           'password' => mask_all_characters,
           'account_number' => mask_all_characters,
           'token' => mask_all_characters,
