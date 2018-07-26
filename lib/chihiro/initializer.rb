@@ -23,10 +23,11 @@ module Chihiro
         config.lograge.base_controller_class = 'ActionController::API'
         config.lograge.ignore_actions = ['HealthCheckController#index', 'HealthCheckController#quick_health']
 
-        logger = ActiveSupport::Logger.new(STDOUT)
-        logger.formatter = config.log_formatter
-        config.logger = logger
-
+        if ENV['RAILS_LOG_TO_STDOUT'].present?
+          logger = ActiveSupport::Logger.new(STDOUT)
+          logger.formatter = config.log_formatter  
+          config.logger = logger
+        end
       end
     end
   end
