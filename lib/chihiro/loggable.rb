@@ -29,9 +29,9 @@ module Chihiro
         requestMethod: request.request_method
       }
       if Rails.configuration.no_log_param_paths.include?("#{controller_name}##{action_name}")
-        Rails.logger.info(to_log)
+        Rails.logger.debug(to_log)
       else
-        Rails.logger.info(to_log.merge(params: params.except(:format, :controller, :action).as_json))
+        Rails.logger.debug(to_log.merge(params: params.except(:format, :controller, :action).as_json))
       end
     end
   
@@ -42,7 +42,7 @@ module Chihiro
         requestMethod: request.request_method,
         responseStatus: response.status.to_s
       }
-      Rails.logger.info(to_log)
+      Rails.logger.debug(to_log)
     end
   
     def log_exception(e)
