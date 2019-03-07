@@ -35,7 +35,8 @@ module Chihiro
           'current_password' => mask_all_characters,
           'new_password' => mask_all_characters,
           'email' => mask_email,
-          'user_email' => mask_email
+          'user_email' => mask_email,
+          'secret_key' => mask_all_characters
         }
       end
 
