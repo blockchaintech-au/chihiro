@@ -21,7 +21,7 @@ module Chihiro
 
     def extra_log_data(msg)
       if msg.is_a? Hash
-        MaskUtil.mask(msg)
+        FlattenUtil.flat(MaskUtil.mask(msg))
       elsif msg.is_a? Exception
         { message: msg.message, backtrace: msg.backtrace }
       else
