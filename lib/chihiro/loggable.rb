@@ -1,3 +1,5 @@
+require 'active_support'
+
 module Chihiro
   module Loggable
     extend ActiveSupport::Concern

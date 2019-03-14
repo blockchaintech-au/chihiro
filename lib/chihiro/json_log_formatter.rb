@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'logger'
+
 module Chihiro
   class JsonLogFormatter < ::Logger::Formatter
     def call(severity, _time, _progname, msg)
