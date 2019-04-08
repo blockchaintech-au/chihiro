@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    chihiro (0.3.12)
+    chihiro (0.3.13)
       lograge (~> 0.10)
 
 GEM
@@ -147,4 +147,4 @@ DEPENDENCIES
   rspec (~> 3.0)
 
 BUNDLED WITH
-   1.16.2
+   1.16.6
