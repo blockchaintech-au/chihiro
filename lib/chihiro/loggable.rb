@@ -19,9 +19,6 @@ module Chihiro
       log_request unless should_ignore_logging?
       yield
       log_response unless should_ignore_logging?
-    rescue => e
-      log_exception(e)
-      raise
     end
   
     def log_request
